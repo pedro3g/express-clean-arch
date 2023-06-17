@@ -1,6 +1,6 @@
 # express-clean-arch
 
-Este é um projeto básico usando a arquitetura limpa. Ele fornece uma estrutura inicial para criar uma aplicação web utilizando essas tecnologias, seguindo os princípios da arquitetura limpa.
+Este é um projeto básico usando a arquitetura limpa. Ele fornece uma estrutura inicial para criar uma aplicação web seguindo os princípios da arquitetura limpa.
 
 ## Pré-requisitos
 
