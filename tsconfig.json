@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ESNext",
+    "rootDir": "src",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@domain/*": ["domain/*"],
+      "@infra/*": ["infra/*"]
+    }
+  }
+}
