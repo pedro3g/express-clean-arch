@@ -1,11 +1,14 @@
 import type UseCase from '@app/base/usecase';
 import type CreateUserDto from '@app/dtos/user/create-user.dto';
 import type UserRepository from '@app/repositories/user.repository';
-import UserEntity from '@domain/entities/user.entity';
+import type UserEntity from '@domain/entities/user.entity';
 import DomainError from '@domain/errors/domain.error';
 import { left, type Either, right } from '@domain/errors/either';
+import CreateUserMapper from '@domain/mappers/user/create-user.mapper';
 
 export default class CreateUserUseCase implements UseCase {
+  private readonly createUserMapper = new CreateUserMapper();
+
   constructor(private readonly userRepository: UserRepository) {}
 
   async execute(
@@ -19,14 +22,7 @@ export default class CreateUserUseCase implements UseCase {
       return left('Os parâmetros name, email e password são obrigatórios');
     }
 
-    const user = new UserEntity(
-      null,
-      args.name,
-      args.email,
-      args.password,
-      null,
-      null
-    );
+    const user = this.createUserMapper.mapFrom(args);
 
     const error = user.hasError();
 
